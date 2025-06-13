@@ -15,7 +15,7 @@ def get_2d_classification_data(batch_size=32):
     )
 
     X = torch.tensor(X, dtype = torch.float32)
-    y = torch.tensor(y, dtyype = torch.float32).view(-1, 1)
+    y = torch.tensor(y, dtype = torch.float32).view(-1, 1)
 
     dataset = TensorDataset(X, y)
     return DataLoader(dataset, batch_size = batch_size, shuffle=True)
