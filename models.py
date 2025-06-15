@@ -37,3 +37,19 @@ class MnistMLP(nn.Module):
 
     def forward(self, x):
         return self.net(x)
+    
+
+# == 3. Многоуровневая регрессия ==
+class LocalizationMLP(nn.Module): 
+    def __init__(self):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(10, 64), # Вход - десять признаков (сенсоры)
+            nn.ReLU(),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 3) # Выход - координаты x, y, z
+        )
+    
+    def froward(self, x):
+        return self.net(x )
